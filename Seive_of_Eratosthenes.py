@@ -7,12 +7,16 @@ def seive_of_e(limit):
 
     sieve = [True] * (limit)
     output = []
-    for i in range(2, int(limit)):
+    total = 0
+    for i in range(2, limit):
         if sieve[i]:
             output += [i]
-        for j in range(i*i, int(limit), i):
+            total += 1
+        for j in range(i*i, limit, i):
             sieve[j] = False
+    print("There are {} primes in {}.".format(total, limit-1))
     print(f'Prime numbers: {output}')
+
 
 limit = input('Input an integer for the upper limit: ')
 seive_of_e(limit)
